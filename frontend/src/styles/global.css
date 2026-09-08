@@ -349,3 +349,135 @@ button:disabled { opacity: 0.5; cursor: not-allowed; }
   .situation .counters { grid-template-columns: repeat(4, 1fr); font-size: 12px; }
   .counter .count { font-size: 22px; }
 }
+
+/* Ward Intelligence Panel — metrics grid */
+.metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+  margin-top: 8px;
+}
+.metric {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 10px;
+  text-align: center;
+}
+.metric .k { font-size: 10px; text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted); font-weight: 600; }
+.metric .v { font-size: 20px; font-weight: 700; margin-top: 2px; }
+.metric .u { font-size: 11px; color: var(--muted); }
+
+/* Forecast chips */
+.fc-row { display: flex; gap: 8px; margin-top: 10px; flex-wrap: wrap; }
+.fc-chip {
+  flex: 1;
+  min-width: 90px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 8px;
+  background: var(--surface);
+  text-align: center;
+  cursor: pointer;
+}
+.fc-chip .day { font-size: 10px; text-transform: uppercase; letter-spacing: 0.05em; color: var(--muted); font-weight: 600; }
+.fc-chip .mri { font-size: 18px; font-weight: 700; margin-top: 2px; }
+.fc-chip[data-active="true"] { border-color: var(--primary); box-shadow: 0 0 0 2px rgba(15,23,42,0.08); }
+
+/* Why-this-risk facts */
+.why-factors { list-style: none; margin: 8px 0 0; padding: 0; }
+.why-factors li {
+  padding: 7px 0;
+  border-bottom: 1px dashed var(--border);
+  font-size: 13px;
+  display: flex;
+  gap: 8px;
+  align-items: baseline;
+}
+.why-factors li::before { content: "–"; color: var(--muted); }
+
+/* Fallback + scope badges */
+.fallback-badge {
+  margin-top: 10px;
+  padding: 10px 12px;
+  background: #FEF3C7;
+  border: 1px solid #FDE68A;
+  color: #92400E;
+  border-radius: var(--radius-md);
+  font-size: 12px;
+  font-weight: 600;
+}
+.scope-badge {
+  display: inline-block;
+  padding: 3px 10px;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 700;
+  background: #DBEAFE;
+  color: #1E40AF;
+}
+.scope-badge[data-scope="current"] { background: #E2E8F0; color: #475569; }
+
+/* Historical context */
+.hist-section { margin-top: 12px; padding-top: 12px; border-top: 1px solid var(--border); }
+.hist-section .precedent { font-size: 13px; font-weight: 600; }
+.hist-section .empty { font-size: 13px; color: var(--muted); font-style: italic; }
+.match-row {
+  padding: 8px 0;
+  border-bottom: 1px dashed var(--border);
+  font-size: 12px;
+}
+.match-row:last-child { border-bottom: none; }
+.match-row .head { font-weight: 600; }
+.match-row .actions { color: var(--muted); margin-top: 2px; }
+.match-row .outcome { color: var(--text); margin-top: 2px; }
+
+/* Review Actions -> Issue Alert */
+.button-primary {
+  width: 100%;
+  margin-top: 12px;
+  background: var(--primary) !important;
+  color: #fff !important;
+  border-color: var(--primary) !important;
+}
+.review-box {
+  margin-top: 12px;
+  padding: 12px;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  font-size: 12px;
+}
+.review-actions { display: flex; gap: 10px; margin-top: 12px; }
+.review-actions button { flex: 1; }
+
+/* Top Priority Wards */
+.priority-list { list-style: none; margin: 0; padding: 0; }
+.priority-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  text-align: left;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  border-radius: var(--radius-md);
+  padding: 9px 12px;
+  margin-bottom: 6px;
+}
+.priority-row:hover { background: #F1F5F9; }
+.priority-row.active { border-color: var(--primary); box-shadow: 0 0 0 2px rgba(15,23,42,0.08); }
+.priority-row .rank { font-family: var(--font-mono); font-size: 11px; color: var(--muted); font-weight: 700; width: 18px; }
+.priority-row .name { flex: 1; font-weight: 600; font-size: 13px; }
+.priority-row .score { font-size: 12px; font-weight: 600; }
+.priority-row .score.danger { color: var(--danger); }
+
+/* Provenance footer */
+.provenance {
+  padding: 10px 24px;
+  background: var(--bg);
+  border-top: 1px solid var(--border);
+  color: var(--muted);
+  font-size: 11px;
+  text-align: center;
+}

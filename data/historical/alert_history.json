@@ -1,0 +1,202 @@
+[
+  {
+    "event_id": "local-1d7b8162",
+    "date": "2026-09-08",
+    "start": "2026-09-08",
+    "end": "2026-09-08",
+    "ward_id": "ward_001",
+    "ward_name": "Somajiguda",
+    "wbgt_c": 26.76,
+    "utci_c": 23.38,
+    "mri": 46,
+    "risk_band": "HIGH",
+    "vulnerability_index": 0.24200000000000002,
+    "actions_taken": [
+      "Issue public heat advisory"
+    ],
+    "alert_level": "HIGH",
+    "season": "monsoon",
+    "source": "local-journal",
+    "synthetic": false
+  },
+  {
+    "event_id": "local-e61203ed",
+    "date": "2026-09-08",
+    "start": "2026-09-08",
+    "end": "2026-09-08",
+    "ward_id": "ward_002",
+    "ward_name": "Banjara Hills",
+    "wbgt_c": 26.76,
+    "utci_c": 23.38,
+    "mri": 45.5,
+    "risk_band": "HIGH",
+    "vulnerability_index": 0.21400000000000002,
+    "actions_taken": [
+      "Issue public heat advisory"
+    ],
+    "alert_level": "HIGH",
+    "season": "monsoon",
+    "source": "local-journal",
+    "synthetic": false
+  },
+  {
+    "event_id": "local-56bd8c13",
+    "date": "2026-09-08",
+    "start": "2026-09-08",
+    "end": "2026-09-08",
+    "ward_id": "ward_003",
+    "ward_name": "Jubilee Hills",
+    "wbgt_c": 25.64,
+    "utci_c": 22.28,
+    "mri": 43.5,
+    "risk_band": "HIGH",
+    "vulnerability_index": 0.184,
+    "actions_taken": [
+      "Issue public heat advisory"
+    ],
+    "alert_level": "HIGH",
+    "season": "monsoon",
+    "source": "local-journal",
+    "synthetic": false
+  },
+  {
+    "event_id": "local-820486b4",
+    "date": "2026-09-08",
+    "start": "2026-09-08",
+    "end": "2026-09-08",
+    "ward_id": "ward_004",
+    "ward_name": "Secunderabad",
+    "wbgt_c": 26.86,
+    "utci_c": 27.46,
+    "mri": 47.1,
+    "risk_band": "HIGH",
+    "vulnerability_index": 0.262,
+    "actions_taken": [
+      "Issue public heat advisory"
+    ],
+    "alert_level": "HIGH",
+    "season": "monsoon",
+    "source": "local-journal",
+    "synthetic": false
+  },
+  {
+    "event_id": "local-a2ab8aa8",
+    "date": "2026-09-08",
+    "start": "2026-09-08",
+    "end": "2026-09-08",
+    "ward_id": "ward_005",
+    "ward_name": "Charminar",
+    "wbgt_c": 25.97,
+    "utci_c": 21.26,
+    "mri": 46.3,
+    "risk_band": "HIGH",
+    "vulnerability_index": 0.266,
+    "actions_taken": [
+      "Issue public heat advisory"
+    ],
+    "alert_level": "HIGH",
+    "season": "monsoon",
+    "source": "local-journal",
+    "synthetic": false
+  },
+  {
+    "event_id": "local-a0e5ed0b",
+    "date": "2026-09-08",
+    "start": "2026-09-08",
+    "end": "2026-09-08",
+    "ward_id": "ward_006",
+    "ward_name": "Ameerpet",
+    "wbgt_c": 26.65,
+    "utci_c": 24.37,
+    "mri": 44.9,
+    "risk_band": "HIGH",
+    "vulnerability_index": 0.222,
+    "actions_taken": [
+      "Issue public heat advisory"
+    ],
+    "alert_level": "HIGH",
+    "season": "monsoon",
+    "source": "local-journal",
+    "synthetic": false
+  },
+  {
+    "event_id": "local-784aec61",
+    "date": "2026-09-08",
+    "start": "2026-09-08",
+    "end": "2026-09-08",
+    "ward_id": "ward_007",
+    "ward_name": "Begumpet",
+    "wbgt_c": 26.65,
+    "utci_c": 24.37,
+    "mri": 45.2,
+    "risk_band": "HIGH",
+    "vulnerability_index": 0.23700000000000002,
+    "actions_taken": [
+      "Issue public heat advisory"
+    ],
+    "alert_level": "HIGH",
+    "season": "monsoon",
+    "source": "local-journal",
+    "synthetic": false
+  },
+  {
+    "event_id": "local-483fcbf2",
+    "date": "2026-09-08",
+    "start": "2026-09-08",
+    "end": "2026-09-08",
+    "ward_id": "ward_008",
+    "ward_name": "Kukatpally",
+    "wbgt_c": 25.84,
+    "utci_c": 21.63,
+    "mri": 42.7,
+    "risk_band": "HIGH",
+    "vulnerability_index": 0.175,
+    "actions_taken": [
+      "Issue public heat advisory"
+    ],
+    "alert_level": "HIGH",
+    "season": "monsoon",
+    "source": "local-journal",
+    "synthetic": false
+  },
+  {
+    "event_id": "local-8771ba8d",
+    "date": "2026-09-08",
+    "start": "2026-09-08",
+    "end": "2026-09-08",
+    "ward_id": "ward_009",
+    "ward_name": "LB Nagar",
+    "wbgt_c": 26.11,
+    "utci_c": 21.71,
+    "mri": 47.9,
+    "risk_band": "HIGH",
+    "vulnerability_index": 0.271,
+    "actions_taken": [
+      "Issue public heat advisory"
+    ],
+    "alert_level": "HIGH",
+    "season": "monsoon",
+    "source": "local-journal",
+    "synthetic": false
+  },
+  {
+    "event_id": "local-e10539c1",
+    "date": "2026-09-08",
+    "start": "2026-09-08",
+    "end": "2026-09-08",
+    "ward_id": "ward_010",
+    "ward_name": "Dilsukhnagar",
+    "wbgt_c": 26.87,
+    "utci_c": 24.37,
+    "mri": 47.2,
+    "risk_band": "HIGH",
+    "vulnerability_index": 0.20500000000000002,
+    "actions_taken": [
+      "Issue public heat advisory"
+    ],
+    "alert_level": "HIGH",
+    "season": "monsoon",
+    "source": "local-journal",
+    "synthetic": false
+  }
+]

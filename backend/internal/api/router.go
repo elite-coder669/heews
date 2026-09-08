@@ -34,14 +34,28 @@ func NewRouter(cfg *config.Config, orch *orchestration.Orchestrator) *http.Serve
 		}
 	}))
 	mux.HandleFunc("/api/forecast", wrap(h.GetForecast))
-	mux.HandleFunc("/api/alerts", wrap(h.ListAlerts))
+	mux.HandleFunc("/api/alerts", wrap(func(c *ctx) {
+		switch c.r.Method {
+		case http.MethodGet:
+			h.ListAlerts(c)
+		case http.MethodPost:
+			h.CreateAlert(c)
+		default:
+			http.Error(c.w, "method not allowed", http.StatusMethodNotAllowed)
+		}
+	}))
+	mux.HandleFunc("/api/agent/priority", wrap(h.AgentPriority))
 	mux.HandleFunc("/api/agent/action-plan", wrap(h.AgentActionPlan))
+	mux.HandleFunc("/api/agent/memory", wrap(h.AgentMemory))
 	mux.HandleFunc("/api/pipeline/run", wrap(h.RunPipeline))
 
 	return mux
 }
 
-type ctx struct{ w http.ResponseWriter; r *http.Request }
+type ctx struct {
+	w http.ResponseWriter
+	r *http.Request
+}
 
 func wrap(fn func(*ctx)) http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {

@@ -36,8 +36,15 @@ def solar_zenith(lat: float, lon: float, ts: datetime) -> float:
     return math.degrees(math.acos(cos_z))
 
 
-def mean_radiant_temp(shortwave_rad_wm2: float) -> float:
-    """Tmrt approximation from shortwave radiation only."""
-    sigma = 5.670374419e-8
-    rad = max(shortwave_rad_wm2, 0.0)
-    return ((rad / (5.4 * sigma)) ** 0.25) - 273.15
+def mean_radiant_temp(shortwave_rad_wm2: float, t_c: float) -> float:
+    """Mean radiant temperature from shortwave flux.
+
+    T_mrt = T_air + radiative delta, where delta scales shortwave toward a
+    full-sun cap (≈ +15 °C at 900 W/m²). Keeps D_Tmrt inside the UTCI
+    polynomial's valid domain (±30 °C). A blackbody SW/sigma formula is
+    wrong here: it yields sub-freezing "radiant" temperatures under
+    ordinary overcast values.
+    """
+    sw = max(shortwave_rad_wm2, 0.0)
+    delta = 15.0 * min(sw, 900.0) / 900.0
+    return t_c + delta

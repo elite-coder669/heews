@@ -59,7 +59,7 @@ export interface WardRisk {
   };
   thermal?: ThermalSnapshot;
   weather?: WeatherSnapshot;
-  model_version: string;
+  risk_model_version: string;
 }
 
 export interface ForecastCell {
@@ -81,6 +81,14 @@ export interface CityForecast {
   by_ward: ForecastSeries[];
 }
 
+export interface AlertAction {
+  action: string;
+  priority: Priority;
+  target: string;
+  reason?: string;
+  evidence?: string[];
+}
+
 export interface Alert {
   id: string;
   ward_id: string;
@@ -88,20 +96,87 @@ export interface Alert {
   severity: Band;
   headline: string;
   body: string;
-  recommended_actions: Array<{ action: string; priority: Priority; target: string }>;
+  recommended_actions: AlertAction[];
   status: 'ACTIVE' | 'ACK' | 'EXPIRED';
+  source?: 'pipeline' | 'municipal';
+  agent_run_id?: string;
+  agent_version?: string;
+  fallback_used?: boolean;
+}
+
+export interface PriorityWard {
+  ward_id: string;
+  ward_name: string;
+  score: number;
+  band: Band;
+}
+
+export interface HistoricalContext {
+  found: boolean;
+  type: 'local' | 'demo' | 'none';
+  event_id?: string;
+  similarity_reason?: string;
+  source?: string;
+  synthetic: boolean;
+}
+
+export interface MatchingEvent {
+  event_id: string;
+  date: string;
+  ward_name?: string;
+  score: number;
+  band: Band;
+  similarity: number;
+  dimensions?: Record<string, number>;
+  actions_taken?: string[];
+  outcome?: string;
+}
+
+export interface PlanEvidence {
+  current_risk: boolean;
+  vulnerability: boolean;
+  forecast: boolean;
+  historical_precedent: boolean;
+  external_reference: boolean;
+  general_guidance: boolean;
 }
 
 export interface ActionPlan {
+  scope?: 'current' | 'forecast';
+  scope_ward_id?: string;
+  scope_horizon_hours?: number;
+  scope_label?: string;
   severity: Band;
-  priority_wards: string[];
+  priority_wards: PriorityWard[];
   reasoning_summary: string;
   key_factors: string[];
-  recommended_actions: Array<{ action: string; priority: Priority; target: string }>;
+  recommended_actions: AlertAction[];
   public_advisory: string;
   recheck_interval_minutes: Recheck;
   agent_run_id: string;
   fallback_used: boolean;
+  agent_version: string;
+  why_this_matters: string;
+  historical_context: HistoricalContext;
+  matching_events?: MatchingEvent[];
+  evidence: PlanEvidence;
+  confidence: 'HIGH' | 'MEDIUM' | 'LOW';
+  limitations: string[];
+}
+
+export interface PriorityResponse {
+  priority_wards: PriorityWard[];
+}
+
+export interface ManualAlertInput {
+  ward_id: string;
+  severity: Band;
+  headline: string;
+  body: string;
+  recommended_actions: AlertAction[];
+  agent_run_id?: string;
+  agent_version?: string;
+  fallback_used?: boolean;
 }
 
 export interface VersionInfo {
@@ -116,4 +191,6 @@ export type ApiMode = 'LIVE' | 'MOCK' | 'DEGRADED';
 export interface HealthInfo {
   status: string;
   mode: ApiMode;
+  last_run?: string;
+  pipeline_run_id?: string;
 }

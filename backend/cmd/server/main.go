@@ -39,7 +39,7 @@ func main() {
 		log.Printf("serving frontend from %s", staticDir)
 		fs := http.FileServer(http.Dir(staticDir))
 		root.Handle("/data/", fs)
-		root.Handle("/assets/", fs)
+		root.Handle("/assets/", immutable(staticDir))
 		root.Handle("/", spaHandler(staticDir))
 	} else {
 		root.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
@@ -83,12 +83,21 @@ func withCORS(h http.Handler) http.Handler {
 	})
 }
 
+func immutable(dir string) http.Handler {
+	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+		w.Header().Set("Cache-Control", "public, max-age=31536000, immutable")
+		http.FileServer(http.Dir(dir)).ServeHTTP(w, r)
+	})
+}
+
 func spaHandler(dir string) http.HandlerFunc {
 	fs := http.FileServer(http.Dir(dir))
+	index := filepath.Join(dir, "index.html")
 	return func(w http.ResponseWriter, r *http.Request) {
 		path := filepath.Join(dir, r.URL.Path)
-		if _, err := os.Stat(path); os.IsNotExist(err) {
-			http.ServeFile(w, r, filepath.Join(dir, "index.html"))
+		if fi, err := os.Stat(path); err != nil || fi.IsDir() {
+			w.Header().Set("Cache-Control", "no-cache, no-store, must-revalidate")
+			http.ServeFile(w, r, index)
 			return
 		}
 		fs.ServeHTTP(w, r)

@@ -1,16 +1,31 @@
+# Dependencies & build output (never commit vendored or generated files)
 node_modules/
 frontend/dist/
 frontend/.vite/
 backend/bin/
+
+# Secrets — never commit real credentials
+.env
+.env.local
+.env.*.local
+
+# Python caches
+__pycache__/
+*.pyc
+
+# Databases & local state
 *.db
 *.sqlite
-.env.local
+
+# OS / editor cruft
 .DS_Store
 Thumbs.db
 .vscode/
 .idea/
 *.swp
 *.swo
+
+# Tooling
 coverage/
 *.prof
 *.trace

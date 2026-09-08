@@ -59,9 +59,9 @@ This document accompanies `SRS.md` Section 7. It provides deeper detail on each 
 - **Writes:** `ward_mortality_risk`.
 
 ### 2.5 Decision Agent
-- **Owns:** Tool wrappers, prompt, structured output, fallback.
-- **Reads:** All risk/forecast/vulnerability tables.
-- **Writes:** `agent_decisions`, `alerts`.
+- **Owns:** Rule-based action planning, provenance (evidence + confidence + limitations), historical-memory matching, optional LLM narrative layer, action-plan API.
+- **Reads:** `ward_risk`, `ward_forecast`, `ward_demographics`, historical memory (learned local journal `data/historical/alert_history.json` + optional demo fixture).
+- **Writes:** `agent_decisions` (in-memory), `alerts`, local historical journal (LIVE pipeline runs only).
 
 ### 2.6 Backend
 - **Owns:** HTTP API, persistence, orchestration, alerting.

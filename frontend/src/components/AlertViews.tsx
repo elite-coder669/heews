@@ -16,26 +16,35 @@ export function AlertTicker({ alerts }: { alerts: Alert[] }) {
   );
 }
 
-export function AlertCenter({ alerts }: { alerts: Alert[] }) {
+export function AlertCenter({ alerts, onSelectWard }: { alerts: Alert[]; onSelectWard?: (wardId: string) => void }) {
   return (
     <div className="alert-center">
       <h1>Alert Center</h1>
       {alerts.length === 0 && <p className="muted">No active alerts. Monitor continues.</p>}
       {alerts.map((a) => (
-        <div key={a.id} className="alert-row" style={{ borderLeftColor: riskColor(a.severity) }}>
+        <button
+          key={a.id}
+          className="alert-row"
+          style={{ borderLeftColor: riskColor(a.severity), width: '100%', textAlign: 'left', cursor: 'pointer' }}
+          onClick={() => onSelectWard?.(a.ward_id)}
+          title="Open in console map"
+        >
           <div className="body">
             <h3>{a.ward_id} · {a.severity.replace('_', ' ')}</h3>
-            <div className="meta">{new Date(a.created_at).toLocaleString()} · {a.status}</div>
+            <div className="meta">
+              {new Date(a.created_at).toLocaleString()} · {a.status}
+              {a.source && <span> · {a.source === 'municipal' ? 'municipal (approved)' : 'pipeline'}</span>}
+            </div>
             <p style={{ marginTop: 6 }}>{a.headline}</p>
             {a.recommended_actions.length > 0 && (
               <ul style={{ marginTop: 6 }}>
                 {a.recommended_actions.map((ra, i) => (
- <li key={i}><span style={{ fontWeight: 600 }}>{ra.priority}:</span> {ra.action}</li>
+                  <li key={i}><span style={{ fontWeight: 600 }}>{ra.priority}:</span> {ra.action}</li>
                 ))}
               </ul>
             )}
           </div>
-        </div>
+        </button>
       ))}
     </div>
   );

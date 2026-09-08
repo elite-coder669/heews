@@ -10,12 +10,36 @@ import logging
 from pathlib import Path
 from typing import Any
 
+import ssl
 import urllib.request
 import urllib.parse
 
 logger = logging.getLogger(__name__)
 
 PHYSICS_VERSION = "wbgt-liljegren-1.0"
+
+
+def _ssl_context() -> ssl.SSLContext:
+    """A verifiable context even when the interpreter bundles no CA store.
+
+    python.org macOS builds default SSL paths point at a framework dir that
+    only exists after running Install Certificates.command; the system store
+    lives at /etc/ssl/cert.pem instead.
+    """
+    try:
+        import certifi
+        return ssl.create_default_context(cafile=certifi.where())
+    except ImportError:
+        pass
+    candidates = [
+        "/etc/ssl/cert.pem",
+        "/etc/ssl/certs/ca-certificates.crt",
+        "/etc/pki/tls/certs/ca-bundle.crt",
+    ]
+    for bundle in candidates:
+        if Path(bundle).exists():
+            return ssl.create_default_context(cafile=bundle)
+    return ssl.create_default_context()
 
 VARS = ",".join([
     "temperature_2m",
@@ -45,7 +69,7 @@ def fetch_open_meteo(
     }
     url = f"{base}?{urllib.parse.urlencode(params)}"
     logger.info("fetch_open_meteo url=%s", url)
-    with urllib.request.urlopen(url, timeout=20) as resp:  # noqa: S310
+    with urllib.request.urlopen(url, timeout=20, context=_ssl_context()) as resp:  # noqa: S310
         return json.loads(resp.read().decode("utf-8"))
 
 

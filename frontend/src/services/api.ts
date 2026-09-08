@@ -1,6 +1,6 @@
 import type {
   Ward, WardRisk, WardThermal, WardWeather, CityForecast,
-  Alert, ActionPlan, VersionInfo, HealthInfo,
+  Alert, ActionPlan, VersionInfo, HealthInfo, PriorityResponse, ManualAlertInput,
 } from '../types';
 
 const BASE = (import.meta as any).env?.VITE_API_BASE ?? '/api';
@@ -41,6 +41,12 @@ export const api = {
   risk: (id: string) => jget<WardRisk>(`/wards/${id}/risk`),
   forecast: () => jget<CityForecast>('/forecast'),
   alerts: () => jget<{ alerts: Alert[] }>('/alerts').then((d) => d.alerts),
-  actionPlan: (ward_ids: string[]) =>
-    jpost<ActionPlan>('/agent/action-plan', { ward_ids, context: 'municipal planning' }),
+  actionPlan: (ward_ids: string[], horizonHours: number = 0) =>
+    jpost<ActionPlan>('/agent/action-plan', {
+      ward_ids,
+      context: 'municipal planning',
+      horizon_hours: horizonHours,
+    }),
+  priority: () => jget<PriorityResponse>('/agent/priority').then((d) => d.priority_wards),
+  issueAlert: (input: ManualAlertInput) => jpost<Alert>('/alerts', input),
 };

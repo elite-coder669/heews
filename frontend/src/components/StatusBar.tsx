@@ -53,6 +53,13 @@ export function StatusHeader({ version, mode, lastUpdate }: {
         <span><strong>Updated</strong> {lastUpdate ?? '—'}</span>
         {version && <span><strong>Physics</strong> {version.physics_version}</span>}
         {version && <span><strong>Risk model</strong> {version.risk_model_version}</span>}
+        <button
+          className="refresh-btn"
+          onClick={() => window.location.reload()}
+          title="Refresh page to re-fetch data"
+        >
+          ↻
+        </button>
       </div>
     </header>
   );
