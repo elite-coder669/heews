@@ -1,6 +1,6 @@
 # HEEWS — Extreme Heatwave Early Warning & Human Thermal Stress Index
 
-Decision-support prototype that turns weather into municipal heat-health action.
+Decision-support prototype that turns weather into municipal heat-health action for Hyderabad.
 
 ```
 WEATHER  →  PHYSIOLOGICAL HEAT STRESS  →  POPULATION RISK  →  DECISION  →  ACTION

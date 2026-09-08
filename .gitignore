@@ -1,0 +1,16 @@
+node_modules/
+frontend/dist/
+frontend/.vite/
+backend/bin/
+*.db
+*.sqlite
+.env.local
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.swp
+*.swo
+coverage/
+*.prof
+*.trace
