@@ -1,0 +1,27 @@
+version: "3.9"
+
+services:
+  postgres:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_USER: heatwave
+      POSTGRES_PASSWORD: heatwave
+      POSTGRES_DB: heatwave
+    ports: ["5432:5432"]
+    volumes: ["heatwave-db:/var/lib/postgresql/data"]
+
+  backend:
+    build: ./backend
+    depends_on: [postgres]
+    environment:
+      APP_MODE: ${APP_MODE:-MOCK}
+      DB_URL: postgresql://heatwave:heatwave@postgres:5432/heatwave
+    ports: ["8080:8080"]
+
+  frontend:
+    build: ./frontend
+    depends_on: [backend]
+    ports: ["5173:5173"]
+
+volumes:
+  heatwave-db:

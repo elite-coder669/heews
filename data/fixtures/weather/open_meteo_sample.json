@@ -1,0 +1,24 @@
+{
+  "current": {
+    "time": "2026-09-07T12:00",
+    "temperature_2m": 41.2,
+    "relative_humidity_2m": 58,
+    "wind_speed_10m": 7.6,
+    "shortwave_radiation": 710,
+    "direct_radiation": 520,
+    "diffuse_radiation": 190,
+    "surface_pressure": 1004,
+    "cloud_cover": 30
+  },
+  "hourly": {
+    "time": ["2026-09-07T13:00", "2026-09-07T14:00", "2026-09-07T15:00"],
+    "temperature_2m": [41.7, 42.1, 41.9],
+    "relative_humidity_2m": [55, 53, 54],
+    "wind_speed_10m": [7.4, 7.2, 7.0],
+    "shortwave_radiation": [760, 770, 720],
+    "direct_radiation": [560, 580, 530],
+    "diffuse_radiation": [200, 190, 190],
+    "surface_pressure": [1004, 1003, 1003],
+    "cloud_cover": [28, 30, 32]
+  }
+}
