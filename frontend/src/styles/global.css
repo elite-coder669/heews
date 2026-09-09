@@ -117,9 +117,9 @@ button:disabled { opacity: 0.5; cursor: not-allowed; }
 
 /* App layout */
 .app-shell {
-  display: grid;
-  grid-template-rows: auto auto 1fr auto;
-  height: 100%;
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
 }
 
 /* Header */
@@ -188,6 +188,8 @@ button:disabled { opacity: 0.5; cursor: not-allowed; }
   gap: 0;
   overflow: hidden;
   min-height: 0;
+  height: 640px;
+  flex-shrink: 0;
 }
 
 .map-pane { position: relative; border-right: 1px solid var(--border); background: #E2E8F0; }
@@ -255,7 +257,19 @@ button:disabled { opacity: 0.5; cursor: not-allowed; }
   background: var(--surface);
   border-top: 1px solid var(--border);
 }
-.forecast-strip h3 { font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); margin: 0 0 10px; }
+.forecast-strip-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px; }
+.forecast-strip h3 { font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); margin: 0; }
+.forecast-close {
+  border: none;
+  background: transparent;
+  color: var(--muted);
+  font-size: 20px;
+  line-height: 1;
+  cursor: pointer;
+  padding: 2px 6px;
+  border-radius: var(--radius-sm, 4px);
+}
+.forecast-close:hover { background: var(--border); color: var(--text); }
 .forecast-grid { display: grid; grid-template-columns: 80px repeat(5, 1fr); gap: 6px 12px; align-items: center; font-size: 12px; }
 .forecast-grid .head { color: var(--muted); font-size: 10px; text-transform: uppercase; letter-spacing: 0.04em; font-weight: 600; }
 .forecast-grid .mri-bar {

@@ -58,6 +58,7 @@ export default function App() {
   const [polygons, setPolygons] = useState<Record<string, [number, number][]>>({});
   const [bandFilter, setBandFilter] = useState<string | null>(null);
   const [initialLoaded, setInitialLoaded] = useState(false);
+  const [cityLabel, setCityLabel] = useState<string>('Hyderabad');
   const bootState = useRef({ running: false, loaded: false });
   const polledRun = useRef<string | null>(null);
 
@@ -65,12 +66,14 @@ export default function App() {
     if (bootState.current.running) return false;
     bootState.current.running = true;
     try {
-      const [h, v, ws, fc] = await Promise.all([
+      const [h, v, ws, fc, cfg] = await Promise.all([
         api.health().catch(() => ({ status: 'unknown', mode: 'DEGRADED' as ApiMode })),
         api.version().catch(() => null),
         api.wards().catch(() => [] as Ward[]),
         api.forecast().catch(() => null as CityForecast | null),
+        api.config().catch(() => null),
       ]);
+      if (cfg?.city_label) setCityLabel(cfg.city_label);
       if (ws.length > 0) {
         const polys = await fetchWardPolygons().catch(() => ({} as Record<string, [number, number][]>));
         setHealth(h as HealthInfo);
@@ -194,6 +197,11 @@ export default function App() {
     setView('console');
   }, []);
 
+  const handleCloseWard = useCallback(() => {
+    setSelectedId(null);
+    setFocusId(null);
+  }, []);
+
   const handleIssueAlert = useCallback(async (p: ActionPlan) => {
     if (!p.scope_ward_id && !selectedId) return;
     const wardId = p.scope_ward_id ?? selectedId!;
@@ -241,7 +249,7 @@ export default function App() {
     : wards;
 
   const selectedSeries = forecast?.by_ward.find((s) => s.ward_id === selectedId);
-  const forecastSeries = (selectedSeries ?? forecast?.by_ward[0])?.series ?? [];
+  const forecastSeries = selectedId ? (selectedSeries?.series ?? []) : [];
   const forecastRows = forecastSeries.map((c) => ({
     label: c.day,
     wbgt: c.wbgt_c,
@@ -299,7 +307,7 @@ export default function App() {
         {header}
         <ErrorBoundary>
           <PublicAdvisory
-            areaName={approvedWard?.ward_name ?? selectedWard?.ward_name ?? 'Hyderabad'}
+            areaName={approvedWard?.ward_name ?? selectedWard?.ward_name ?? cityLabel}
             rows={forecastRows.map((r) => ({ label: r.label, band: r.band }))}
             advisory={approvedAlert}
             advisoryText={approvedAlert?.body ?? plan?.public_advisory ?? 'Stay hydrated and avoid midday sun.'}
@@ -344,7 +352,7 @@ export default function App() {
               />
             ) : (
               <div className="drawer-empty" style={{ height: '100%' }}>
-                <h3>Loading Hyderabad wards…</h3>
+                <h3>Loading {cityLabel} wards…</h3>
                 <p>Backend is reachable. Awaiting ward list.</p>
               </div>
             )}
@@ -410,7 +418,7 @@ export default function App() {
       </main>
 
       <ErrorBoundary>
-        <ForecastStrip rows={forecastRows} />
+        <ForecastStrip rows={forecastRows} onClose={handleCloseWard} />
       </ErrorBoundary>
       <ErrorBoundary>
         <AlertTicker alerts={alerts} />

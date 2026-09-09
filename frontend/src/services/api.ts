@@ -31,9 +31,18 @@ async function jpost<T>(path: string, payload: unknown): Promise<T> {
   return body.data as T;
 }
 
+export interface AppConfig {
+  city: string;       // slug, e.g. "hyderabad" — matches /data/<city>_wards.geojson
+  city_label: string;  // e.g. "Hyderabad"
+  city_state: string;  // e.g. "Telangana"
+  city_lat: number;
+  city_lon: number;
+}
+
 export const api = {
   health: () => jget<HealthInfo>('/health'),
   version: () => jget<VersionInfo>('/version'),
+  config: () => jget<AppConfig>('/config'),
   wards: () => jget<{ wards: Ward[] }>('/wards').then((d) => d.wards),
   ward: (id: string) => jget<Ward>(`/wards/${id}`),
   weather: (id: string) => jget<WardWeather>(`/wards/${id}/weather`),

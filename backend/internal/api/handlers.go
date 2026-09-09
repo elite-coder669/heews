@@ -54,6 +54,22 @@ func (h *Handlers) Version(c *ctx) {
 	})
 }
 
+// Config exposes which city this backend instance is currently serving, so
+// the frontend can fetch the matching ward GeoJSON (/data/<city>_wards.geojson)
+// without needing a separate rebuild per city. Set via the CITY env var.
+func (h *Handlers) Config(c *ctx) {
+	writeJSON(c.w, http.StatusOK, map[string]any{
+		"ok": true,
+		"data": map[string]any{
+			"city":       h.Cfg.City,
+			"city_label": h.Cfg.CityLabel,
+			"city_state": h.Cfg.CityState,
+			"city_lat":   h.Cfg.CityLat,
+			"city_lon":   h.Cfg.CityLon,
+		},
+	})
+}
+
 func (h *Handlers) ListWards(c *ctx) {
 	writeJSON(c.w, http.StatusOK, map[string]any{
 		"ok":   true,

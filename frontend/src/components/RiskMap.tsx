@@ -34,7 +34,7 @@ function FocusController({ focusId, wards }: { focusId?: string | null; wards: W
     if (!focusId) return;
     const w = wards.find((x) => x.ward_id === focusId);
     if (!w) return;
-    map.flyTo([w.centroid.lat, w.centroid.lon], Math.max(map.getZoom(), 13), { duration: 0.8 });
+    map.setView([w.centroid.lat, w.centroid.lon], Math.max(map.getZoom(), 13), { animate: false });
   }, [focusId, wards, map]);
   return null;
 }

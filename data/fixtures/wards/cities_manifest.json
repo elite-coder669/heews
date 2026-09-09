@@ -1,0 +1,227 @@
+{
+  "ahmedabad": {
+    "slug": "ahmedabad",
+    "label": "Ahmedabad",
+    "state": "Gujarat",
+    "ward_count": 48,
+    "source_file": "Wards.geojson",
+    "lat": 23.0272,
+    "lon": 72.5754
+  },
+  "bangalore": {
+    "slug": "bangalore",
+    "label": "Bangalore",
+    "state": "Karnataka",
+    "ward_count": 243,
+    "source_file": "BBMP.geojson",
+    "lat": 12.9881,
+    "lon": 77.6221
+  },
+  "bhopal": {
+    "slug": "bhopal",
+    "label": "Bhopal",
+    "state": "Madhya Pradesh",
+    "ward_count": 86,
+    "source_file": "Bhopal_wards.geojson",
+    "lat": 23.2251,
+    "lon": 77.3981
+  },
+  "bhubaneswar": {
+    "slug": "bhubaneswar",
+    "label": "Bhubaneswar",
+    "state": "Odisha",
+    "ward_count": 67,
+    "source_file": "Wards.GeoJSON",
+    "lat": 20.2888,
+    "lon": 85.8283
+  },
+  "bodh_gaya": {
+    "slug": "bodh_gaya",
+    "label": "Bodh Gaya",
+    "state": "Bihar",
+    "ward_count": 19,
+    "source_file": "Bodh_Gaya_Wards.geojson",
+    "lat": 24.709,
+    "lon": 84.9843
+  },
+  "chandigarh": {
+    "slug": "chandigarh",
+    "label": "Chandigarh",
+    "state": "Chandigarh (UT)",
+    "ward_count": 28,
+    "source_file": "Chandigarh_Wards.geojson",
+    "lat": 30.7299,
+    "lon": 76.777
+  },
+  "chennai": {
+    "slug": "chennai",
+    "label": "Chennai",
+    "state": "Tamil Nadu",
+    "ward_count": 201,
+    "source_file": "Wards.geojson",
+    "lat": 13.0436,
+    "lon": 80.2357
+  },
+  "coimbatore": {
+    "slug": "coimbatore",
+    "label": "Coimbatore",
+    "state": "Tamil Nadu",
+    "ward_count": 100,
+    "source_file": "Cbe2011Wards.geojson",
+    "lat": 11.009,
+    "lon": 76.9672
+  },
+  "delhi": {
+    "slug": "delhi",
+    "label": "Delhi",
+    "state": "Delhi (NCT)",
+    "ward_count": 290,
+    "source_file": "Delhi_Wards.geojson",
+    "lat": 28.6439,
+    "lon": 77.0931
+  },
+  "faridabad": {
+    "slug": "faridabad",
+    "label": "Faridabad",
+    "state": "Haryana",
+    "ward_count": 40,
+    "source_file": "Faridabad_Wards.geojson",
+    "lat": 28.4043,
+    "lon": 77.2889
+  },
+  "hyderabad": {
+    "slug": "hyderabad",
+    "label": "Hyderabad",
+    "state": "Telangana",
+    "ward_count": 145,
+    "source_file": "ghmc-wards.geojson",
+    "lat": 17.4262,
+    "lon": 78.4465
+  },
+  "jaipur": {
+    "slug": "jaipur",
+    "label": "Jaipur",
+    "state": "Rajasthan",
+    "ward_count": 77,
+    "source_file": "Jaipur_Wards.geojson",
+    "lat": 26.8983,
+    "lon": 75.8003
+  },
+  "kanpur": {
+    "slug": "kanpur",
+    "label": "Kanpur",
+    "state": "Uttar Pradesh",
+    "ward_count": 58,
+    "source_file": "Kanpur_wards.geojson",
+    "lat": 26.4342,
+    "lon": 80.3359
+  },
+  "katihar": {
+    "slug": "katihar",
+    "label": "Katihar",
+    "state": "Bihar",
+    "ward_count": 45,
+    "source_file": "Katihar_Wards.geojson",
+    "lat": 25.5497,
+    "lon": 87.5712
+  },
+  "kishangarh": {
+    "slug": "kishangarh",
+    "label": "Kishangarh",
+    "state": "Rajasthan",
+    "ward_count": 45,
+    "source_file": "Kishangarh_Wards.geojson",
+    "lat": 26.59,
+    "lon": 74.8475
+  },
+  "kochi": {
+    "slug": "kochi",
+    "label": "Kochi",
+    "state": "Kerala",
+    "ward_count": 77,
+    "source_file": "KCH_wards.geojson",
+    "lat": 9.9716,
+    "lon": 76.2887
+  },
+  "kolkata": {
+    "slug": "kolkata",
+    "label": "Kolkata",
+    "state": "West Bengal",
+    "ward_count": 141,
+    "source_file": "kolkata.geojson",
+    "lat": 22.5415,
+    "lon": 88.3505
+  },
+  "lucknow": {
+    "slug": "lucknow",
+    "label": "Lucknow",
+    "state": "Uttar Pradesh",
+    "ward_count": 112,
+    "source_file": "Lucknow_ward_boundary.geojson",
+    "lat": 26.8392,
+    "lon": 80.946
+  },
+  "mumbai": {
+    "slug": "mumbai",
+    "label": "Mumbai",
+    "state": "Maharashtra",
+    "ward_count": 24,
+    "source_file": "BMC_Wards.geojson",
+    "lat": 19.0821,
+    "lon": 72.878
+  },
+  "nmmc": {
+    "slug": "nmmc",
+    "label": "NMMC",
+    "state": "Maharashtra",
+    "ward_count": 111,
+    "source_file": "NMC_ElectoralWards.geojson",
+    "lat": 19.092,
+    "lon": 73.0126
+  },
+  "pcmc": {
+    "slug": "pcmc",
+    "label": "PCMC",
+    "state": "Maharashtra",
+    "ward_count": 66,
+    "source_file": "pcmc-electoral-wards.geojson",
+    "lat": 18.6425,
+    "lon": 73.8222
+  },
+  "pune": {
+    "slug": "pune",
+    "label": "Pune",
+    "state": "Maharashtra",
+    "ward_count": 58,
+    "source_file": "pune-electoral-wards_2022.geojson",
+    "lat": 18.5036,
+    "lon": 73.8752
+  },
+  "purnia": {
+    "slug": "purnia",
+    "label": "Purnia",
+    "state": "Bihar",
+    "ward_count": 43,
+    "source_file": "Purnia_Wards.geojson",
+    "lat": 25.8005,
+    "lon": 87.4878
+  },
+  "vadodara": {
+    "slug": "vadodara",
+    "label": "Vadodara",
+    "state": "Gujarat",
+    "ward_count": 12,
+    "source_file": "vardodara_wards.geojson",
+    "lat": 22.2982,
+    "lon": 73.1916
+  },
+  "vijayawada": {
+    "slug": "vijayawada",
+    "label": "Vijayawada",
+    "state": "Andhra Pradesh",
+    "ward_count": 77,
+    "source_file": "Vijayawada_Wards.geojson",
+    "lat": 16.5316,
+    "lon": 80.6355
+  }
+}

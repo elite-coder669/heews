@@ -1,0 +1,530 @@
+[
+  {
+    "ward_id": "ward_001",
+    "elderly_ratio": 0.09,
+    "outdoor_worker_share": 0.15,
+    "informal_housing_share": 0.23,
+    "population": 16541,
+    "source_year": 2021
+  },
+  {
+    "ward_id": "ward_002",
+    "elderly_ratio": 0.1,
+    "outdoor_worker_share": 0.21,
+    "informal_housing_share": 0.31,
+    "population": 20691,
+    "source_year": 2021
+  },
+  {
+    "ward_id": "ward_003",
+    "elderly_ratio": 0.06,
+    "outdoor_worker_share": 0.17,
+    "informal_housing_share": 0.25,
+    "population": 25200,
+    "source_year": 2021
+  },
+  {
+    "ward_id": "ward_004",
+    "elderly_ratio": 0.06,
+    "outdoor_worker_share": 0.18,
+    "informal_housing_share": 0.31,
+    "population": 18706,
+    "source_year": 2021
+  },
+  {
+    "ward_id": "ward_005",
+    "elderly_ratio": 0.1,
+    "outdoor_worker_share": 0.15,
+    "informal_housing_share": 0.27,
+    "population": 52269,
+    "source_year": 2021
+  },
+  {
+    "ward_id": "ward_006",
+    "elderly_ratio": 0.12,
+    "outdoor_worker_share": 0.17,
+    "informal_housing_share": 0.19,
+    "population": 33548,
+    "source_year": 2021
+  },
+  {
+    "ward_id": "ward_007",
+    "elderly_ratio": 0.09,
+    "outdoor_worker_share": 0.12,
+    "informal_housing_share": 0.24,
+    "population": 34770,
+    "source_year": 2021
+  },
+  {
+    "ward_id": "ward_008",
+    "elderly_ratio": 0.1,
+    "outdoor_worker_share": 0.1,
+    "informal_housing_share": 0.27,
+    "population": 45300,
+    "source_year": 2021
+  },
+  {
+    "ward_id": "ward_009",
+    "elderly_ratio": 0.13,
+    "outdoor_worker_share": 0.24,
+    "informal_housing_share": 0.31,
+    "population": 20702,
+    "source_year": 2021
+  },
+  {
+    "ward_id": "ward_010",
+    "elderly_ratio": 0.1,
+    "outdoor_worker_share": 0.22,
+    "informal_housing_share": 0.09,
+    "population": 49717,
+    "source_year": 2021
+  },
+  {
+    "ward_id": "ward_011",
+    "elderly_ratio": 0.11,
+    "outdoor_worker_share": 0.22,
+    "informal_housing_share": 0.31,
+    "population": 22538,
+    "source_year": 2021
+  },
+  {
+    "ward_id": "ward_012",
+    "elderly_ratio": 0.14,
+    "outdoor_worker_share": 0.17,
+    "informal_housing_share": 0.11,
+    "population": 55803,
+    "source_year": 2021
+  },
+  {
+    "ward_id": "ward_013",
+    "elderly_ratio": 0.09,
+    "outdoor_worker_share": 0.19,
+    "informal_housing_share": 0.32,
+    "population": 34369,
+    "source_year": 2021
+  },
+  {
+    "ward_id": "ward_014",
+    "elderly_ratio": 0.13,
+    "outdoor_worker_share": 0.17,
+    "informal_housing_share": 0.16,
+    "population": 28452,
+    "source_year": 2021
+  },
+  {
+    "ward_id": "ward_015",
+    "elderly_ratio": 0.08,
+    "outdoor_worker_share": 0.11,
+    "informal_housing_share": 0.17,
+    "population": 52961,
+    "source_year": 2021
+  },
+  {
+    "ward_id": "ward_016",
+    "elderly_ratio": 0.11,
+    "outdoor_worker_share": 0.19,
+    "informal_housing_share": 0.21,
+    "population": 35090,
+    "source_year": 2021
+  },
+  {
+    "ward_id": "ward_017",
+    "elderly_ratio": 0.07,
+    "outdoor_worker_share": 0.16,
+    "informal_housing_share": 0.26,
+    "population": 23273,
+    "source_year": 2021
+  },
+  {
+    "ward_id": "ward_018",
+    "elderly_ratio": 0.12,
+    "outdoor_worker_share": 0.13,
+    "informal_housing_share": 0.22,
+    "population": 27495,
+    "source_year": 2021
+  },
+  {
+    "ward_id": "ward_019",
+    "elderly_ratio": 0.11,
+    "outdoor_worker_share": 0.15,
+    "informal_housing_share": 0.23,
+    "population": 17506,
+    "source_year": 2021
+  },
+  {
+    "ward_id": "ward_020",
+    "elderly_ratio": 0.11,
+    "outdoor_worker_share": 0.16,
+    "informal_housing_share": 0.27,
+    "population": 46931,
+    "source_year": 2021
+  },
+  {
+    "ward_id": "ward_021",
+    "elderly_ratio": 0.15,
+    "outdoor_worker_share": 0.19,
+    "informal_housing_share": 0.2,
+    "population": 15739,
+    "source_year": 2021
+  },
+  {
+    "ward_id": "ward_022",
+    "elderly_ratio": 0.07,
+    "outdoor_worker_share": 0.24,
+    "informal_housing_share": 0.21,
+    "population": 48692,
+    "source_year": 2021
+  },
+  {
+    "ward_id": "ward_023",
+    "elderly_ratio": 0.15,
+    "outdoor_worker_share": 0.11,
+    "informal_housing_share": 0.3,
+    "population": 37684,
+    "source_year": 2021
+  },
+  {
+    "ward_id": "ward_024",
+    "elderly_ratio": 0.13,
+    "outdoor_worker_share": 0.18,
+    "informal_housing_share": 0.29,
+    "population": 43253,
+    "source_year": 2021
+  },
+  {
+    "ward_id": "ward_025",
+    "elderly_ratio": 0.08,
+    "outdoor_worker_share": 0.18,
+    "informal_housing_share": 0.31,
+    "population": 38768,
+    "source_year": 2021
+  },
+  {
+    "ward_id": "ward_026",
+    "elderly_ratio": 0.08,
+    "outdoor_worker_share": 0.23,
+    "informal_housing_share": 0.15,
+    "population": 23715,
+    "source_year": 2021
+  },
+  {
+    "ward_id": "ward_027",
+    "elderly_ratio": 0.13,
+    "outdoor_worker_share": 0.24,
+    "informal_housing_share": 0.22,
+    "population": 51770,
+    "source_year": 2021
+  },
+  {
+    "ward_id": "ward_028",
+    "elderly_ratio": 0.12,
+    "outdoor_worker_share": 0.22,
+    "informal_housing_share": 0.15,
+    "population": 42115,
+    "source_year": 2021
+  },
+  {
+    "ward_id": "ward_029",
+    "elderly_ratio": 0.07,
+    "outdoor_worker_share": 0.16,
+    "informal_housing_share": 0.29,
+    "population": 46226,
+    "source_year": 2021
+  },
+  {
+    "ward_id": "ward_030",
+    "elderly_ratio": 0.06,
+    "outdoor_worker_share": 0.16,
+    "informal_housing_share": 0.23,
+    "population": 30385,
+    "source_year": 2021
+  },
+  {
+    "ward_id": "ward_031",
+    "elderly_ratio": 0.1,
+    "outdoor_worker_share": 0.11,
+    "informal_housing_share": 0.13,
+    "population": 34804,
+    "source_year": 2021
+  },
+  {
+    "ward_id": "ward_032",
+    "elderly_ratio": 0.12,
+    "outdoor_worker_share": 0.17,
+    "informal_housing_share": 0.3,
+    "population": 59712,
+    "source_year": 2021
+  },
+  {
+    "ward_id": "ward_033",
+    "elderly_ratio": 0.09,
+    "outdoor_worker_share": 0.12,
+    "informal_housing_share": 0.25,
+    "population": 52163,
+    "source_year": 2021
+  },
+  {
+    "ward_id": "ward_034",
+    "elderly_ratio": 0.09,
+    "outdoor_worker_share": 0.13,
+    "informal_housing_share": 0.08,
+    "population": 22557,
+    "source_year": 2021
+  },
+  {
+    "ward_id": "ward_035",
+    "elderly_ratio": 0.1,
+    "outdoor_worker_share": 0.22,
+    "informal_housing_share": 0.28,
+    "population": 38385,
+    "source_year": 2021
+  },
+  {
+    "ward_id": "ward_036",
+    "elderly_ratio": 0.12,
+    "outdoor_worker_share": 0.22,
+    "informal_housing_share": 0.26,
+    "population": 49799,
+    "source_year": 2021
+  },
+  {
+    "ward_id": "ward_037",
+    "elderly_ratio": 0.11,
+    "outdoor_worker_share": 0.21,
+    "informal_housing_share": 0.23,
+    "population": 35451,
+    "source_year": 2021
+  },
+  {
+    "ward_id": "ward_038",
+    "elderly_ratio": 0.12,
+    "outdoor_worker_share": 0.13,
+    "informal_housing_share": 0.09,
+    "population": 58528,
+    "source_year": 2021
+  },
+  {
+    "ward_id": "ward_039",
+    "elderly_ratio": 0.12,
+    "outdoor_worker_share": 0.12,
+    "informal_housing_share": 0.23,
+    "population": 21146,
+    "source_year": 2021
+  },
+  {
+    "ward_id": "ward_040",
+    "elderly_ratio": 0.14,
+    "outdoor_worker_share": 0.12,
+    "informal_housing_share": 0.31,
+    "population": 32398,
+    "source_year": 2021
+  },
+  {
+    "ward_id": "ward_041",
+    "elderly_ratio": 0.1,
+    "outdoor_worker_share": 0.23,
+    "informal_housing_share": 0.13,
+    "population": 21637,
+    "source_year": 2021
+  },
+  {
+    "ward_id": "ward_042",
+    "elderly_ratio": 0.11,
+    "outdoor_worker_share": 0.15,
+    "informal_housing_share": 0.09,
+    "population": 42449,
+    "source_year": 2021
+  },
+  {
+    "ward_id": "ward_043",
+    "elderly_ratio": 0.14,
+    "outdoor_worker_share": 0.17,
+    "informal_housing_share": 0.16,
+    "population": 30584,
+    "source_year": 2021
+  },
+  {
+    "ward_id": "ward_044",
+    "elderly_ratio": 0.11,
+    "outdoor_worker_share": 0.25,
+    "informal_housing_share": 0.08,
+    "population": 26344,
+    "source_year": 2021
+  },
+  {
+    "ward_id": "ward_045",
+    "elderly_ratio": 0.08,
+    "outdoor_worker_share": 0.21,
+    "informal_housing_share": 0.19,
+    "population": 22300,
+    "source_year": 2021
+  },
+  {
+    "ward_id": "ward_046",
+    "elderly_ratio": 0.07,
+    "outdoor_worker_share": 0.2,
+    "informal_housing_share": 0.11,
+    "population": 21609,
+    "source_year": 2021
+  },
+  {
+    "ward_id": "ward_047",
+    "elderly_ratio": 0.13,
+    "outdoor_worker_share": 0.14,
+    "informal_housing_share": 0.16,
+    "population": 51073,
+    "source_year": 2021
+  },
+  {
+    "ward_id": "ward_048",
+    "elderly_ratio": 0.07,
+    "outdoor_worker_share": 0.22,
+    "informal_housing_share": 0.25,
+    "population": 26075,
+    "source_year": 2021
+  },
+  {
+    "ward_id": "ward_049",
+    "elderly_ratio": 0.12,
+    "outdoor_worker_share": 0.16,
+    "informal_housing_share": 0.28,
+    "population": 57642,
+    "source_year": 2021
+  },
+  {
+    "ward_id": "ward_050",
+    "elderly_ratio": 0.11,
+    "outdoor_worker_share": 0.24,
+    "informal_housing_share": 0.12,
+    "population": 22525,
+    "source_year": 2021
+  },
+  {
+    "ward_id": "ward_051",
+    "elderly_ratio": 0.13,
+    "outdoor_worker_share": 0.18,
+    "informal_housing_share": 0.1,
+    "population": 42581,
+    "source_year": 2021
+  },
+  {
+    "ward_id": "ward_052",
+    "elderly_ratio": 0.1,
+    "outdoor_worker_share": 0.22,
+    "informal_housing_share": 0.11,
+    "population": 53397,
+    "source_year": 2021
+  },
+  {
+    "ward_id": "ward_053",
+    "elderly_ratio": 0.09,
+    "outdoor_worker_share": 0.19,
+    "informal_housing_share": 0.18,
+    "population": 57802,
+    "source_year": 2021
+  },
+  {
+    "ward_id": "ward_054",
+    "elderly_ratio": 0.13,
+    "outdoor_worker_share": 0.24,
+    "informal_housing_share": 0.23,
+    "population": 59766,
+    "source_year": 2021
+  },
+  {
+    "ward_id": "ward_055",
+    "elderly_ratio": 0.09,
+    "outdoor_worker_share": 0.14,
+    "informal_housing_share": 0.14,
+    "population": 35533,
+    "source_year": 2021
+  },
+  {
+    "ward_id": "ward_056",
+    "elderly_ratio": 0.09,
+    "outdoor_worker_share": 0.12,
+    "informal_housing_share": 0.28,
+    "population": 15710,
+    "source_year": 2021
+  },
+  {
+    "ward_id": "ward_057",
+    "elderly_ratio": 0.09,
+    "outdoor_worker_share": 0.21,
+    "informal_housing_share": 0.13,
+    "population": 21657,
+    "source_year": 2021
+  },
+  {
+    "ward_id": "ward_058",
+    "elderly_ratio": 0.12,
+    "outdoor_worker_share": 0.24,
+    "informal_housing_share": 0.25,
+    "population": 40062,
+    "source_year": 2021
+  },
+  {
+    "ward_id": "ward_059",
+    "elderly_ratio": 0.07,
+    "outdoor_worker_share": 0.17,
+    "informal_housing_share": 0.28,
+    "population": 27049,
+    "source_year": 2021
+  },
+  {
+    "ward_id": "ward_060",
+    "elderly_ratio": 0.14,
+    "outdoor_worker_share": 0.14,
+    "informal_housing_share": 0.12,
+    "population": 39028,
+    "source_year": 2021
+  },
+  {
+    "ward_id": "ward_061",
+    "elderly_ratio": 0.12,
+    "outdoor_worker_share": 0.11,
+    "informal_housing_share": 0.18,
+    "population": 46274,
+    "source_year": 2021
+  },
+  {
+    "ward_id": "ward_062",
+    "elderly_ratio": 0.07,
+    "outdoor_worker_share": 0.14,
+    "informal_housing_share": 0.1,
+    "population": 37199,
+    "source_year": 2021
+  },
+  {
+    "ward_id": "ward_063",
+    "elderly_ratio": 0.1,
+    "outdoor_worker_share": 0.14,
+    "informal_housing_share": 0.18,
+    "population": 57889,
+    "source_year": 2021
+  },
+  {
+    "ward_id": "ward_064",
+    "elderly_ratio": 0.08,
+    "outdoor_worker_share": 0.22,
+    "informal_housing_share": 0.19,
+    "population": 17341,
+    "source_year": 2021
+  },
+  {
+    "ward_id": "ward_065",
+    "elderly_ratio": 0.09,
+    "outdoor_worker_share": 0.18,
+    "informal_housing_share": 0.1,
+    "population": 58225,
+    "source_year": 2021
+  },
+  {
+    "ward_id": "ward_066",
+    "elderly_ratio": 0.13,
+    "outdoor_worker_share": 0.18,
+    "informal_housing_share": 0.32,
+    "population": 23340,
+    "source_year": 2021
+  }
+]

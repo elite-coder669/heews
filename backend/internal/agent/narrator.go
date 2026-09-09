@@ -32,6 +32,7 @@ type Precedent struct {
 // schema forces the model to answer by referencing candidate IDs only, so it
 // cannot modify or invent quantitative values.
 type NarrativeInput struct {
+	CityLabel          string // e.g. "Hyderabad" — which municipality this agent is deciding for
 	Severity           string
 	WardName           string
 	MRI                float64
@@ -84,7 +85,11 @@ func (c *Client) Narrate(ctx context.Context, in NarrativeInput) (Narrative, err
 
 func buildPrompt(in NarrativeInput) string {
 	var b strings.Builder
-	b.WriteString("You are the municipal heat decision agent for Hyderabad. Select and rank municipal actions from the candidate pool below. You may not invent actions, numbers, evidence, or events.\n")
+	city := in.CityLabel
+	if city == "" {
+		city = "the city"
+	}
+	b.WriteString(fmt.Sprintf("You are the municipal heat decision agent for %s. Select and rank municipal actions from the candidate pool below. You may not invent actions, numbers, evidence, or events.\n", city))
 	b.WriteString(fmt.Sprintf("Severity: %s. Ward: %s. MRI: %.0f. WBGT: %.1f C. UTCI: %.1f C. Vulnerability: available=%t. Confidence: %s.\n",
 		in.Severity, in.WardName, in.MRI, in.WBGT, in.UTCI, in.VulnerabilityKnown, in.Confidence))
 	b.WriteString("Forecast trajectory: " + forecastStr(in.ForecastTrajectory) + "\n")

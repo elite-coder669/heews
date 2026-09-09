@@ -71,7 +71,7 @@ func New(cfg *config.Config) (*Orchestrator, error) {
 		risks:    map[string]Risk{},
 		thermal:  map[string]WardThermal{},
 		weather:  map[string]WardWeather{},
-		forecast: CityForecast{City: "Hyderabad", HorizonHours: 120},
+		forecast: CityForecast{City: cfg.CityLabel, HorizonHours: 120},
 		repoRoot: findRepoRoot(),
 	}
 	o.memory = o.loadHistorical(o.repoRoot, cfg.AppMode, cfg.DemoMemory)
@@ -148,8 +148,8 @@ func (o *Orchestrator) runPythonPipeline() (*PipelineDoc, []Stage, error) {
 	tStart := time.Now()
 	cmd := exec.CommandContext(ctx, "python3", pipelineRelPath,
 		"--mode", "LIVE",
-		"--lat", fmt.Sprintf("%.4f", o.Cfg.HyderabadLat),
-		"--lon", fmt.Sprintf("%.4f", o.Cfg.HyderabadLon),
+		"--lat", fmt.Sprintf("%.4f", o.Cfg.CityLat),
+		"--lon", fmt.Sprintf("%.4f", o.Cfg.CityLon),
 		"--base", o.Cfg.OpenMeteoBase,
 	)
 	cmd.Dir = o.repoRoot
@@ -205,7 +205,7 @@ func (o *Orchestrator) applyDoc(doc *PipelineDoc) {
 func (o *Orchestrator) syntheticDocLocked() *PipelineDoc {
 	thermal := map[string]WardThermal{}
 	weather := map[string]WardWeather{}
-	forecast := CityForecast{City: "Hyderabad", HorizonHours: 120}
+	forecast := CityForecast{City: o.Cfg.CityLabel, HorizonHours: 120}
 	alerts := []Alert{}
 	risks := map[string]Risk{}
 

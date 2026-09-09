@@ -12,13 +12,21 @@ interface DayRow {
 
 interface Props {
   rows: DayRow[];
+  onClose?: () => void;
 }
 
-export default function ForecastStrip({ rows }: Props) {
+export default function ForecastStrip({ rows, onClose }: Props) {
   if (!rows.length) return null;
   return (
     <div className="forecast-strip">
-      <h3>5-day risk forecast · selected ward</h3>
+      <div className="forecast-strip-header">
+        <h3>5-day risk forecast · selected ward</h3>
+        {onClose && (
+          <button className="forecast-close" onClick={onClose} aria-label="Close forecast panel">
+            ×
+          </button>
+        )}
+      </div>
       <div className="forecast-grid">
         <div className="head">Day</div>
         {rows.map((r) => <div key={r.label} className="head">{r.label}</div>)}

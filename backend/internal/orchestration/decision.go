@@ -216,7 +216,7 @@ func (o *Orchestrator) emptyPlan(candidates []Risk) ActionPlan {
 		Severity: "MODERATE", PriorityWards: []PriorityWard{},
 		ReasoningSummary: "No ward risk data yet.",
 		RecommendedActions: []AlertAction{
-			{Action: actionMunicipalAlert, Priority: "LOW", Target: "Hyderabad",
+			{Action: actionMunicipalAlert, Priority: "LOW", Target: o.Cfg.CityLabel,
 				Reason:   "No live risk is currently available; a baseline advisory keeps heat-health awareness on record.",
 				Evidence: []string{"general_guidance"}},
 		},
@@ -320,7 +320,7 @@ func (o *Orchestrator) actionsFor(top scopedMetric, topName, severity string, hi
 				Evidence: base},
 		)
 	default:
-		actions = append(actions, AlertAction{Action: "Publish heat-health awareness advisory", Priority: "LOW", Target: "Hyderabad",
+		actions = append(actions, AlertAction{Action: "Publish heat-health awareness advisory", Priority: "LOW", Target: o.Cfg.CityLabel,
 			Reason:   "No extreme or high risk at present; routine awareness messaging applies city-wide.",
 			Evidence: base})
 	}
@@ -451,6 +451,7 @@ func (o *Orchestrator) applyLLMNarratives(plan *ActionPlan, top scopedMetric, us
 		wardLabel = plan.PriorityWards[0].WardName
 	}
 	input := agent.NarrativeInput{
+		CityLabel:          o.Cfg.CityLabel,
 		Severity:           severityLabel,
 		WardName:           wardLabel,
 		MRI:                top.MRI,

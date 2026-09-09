@@ -14,6 +14,7 @@ func NewRouter(cfg *config.Config, orch *orchestration.Orchestrator) *http.Serve
 
 	mux.HandleFunc("/api/health", wrap(h.Health))
 	mux.HandleFunc("/api/version", wrap(h.Version))
+	mux.HandleFunc("/api/config", wrap(h.Config))
 	mux.HandleFunc("/api/wards", wrap(h.ListWards))
 	mux.HandleFunc("/api/wards/", wrap(func(c *ctx) {
 		rest := strings.TrimPrefix(c.r.URL.Path, "/api/wards/")

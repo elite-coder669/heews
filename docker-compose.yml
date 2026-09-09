@@ -11,16 +11,21 @@ services:
     volumes: ["heatwave-db:/var/lib/postgresql/data"]
 
   backend:
-    build: ./backend
+    build:
+      context: .
+      dockerfile: backend/Dockerfile
     depends_on: [postgres]
     environment:
       APP_MODE: ${APP_MODE:-MOCK}
+      CITY: ${CITY:-hyderabad}
       DB_URL: postgresql://heatwave:heatwave@postgres:5432/heatwave
     ports: ["8080:8080"]
 
   frontend:
     build: ./frontend
     depends_on: [backend]
+    environment:
+      VITE_BACKEND_URL: http://backend:8080
     ports: ["5173:5173"]
 
 volumes:

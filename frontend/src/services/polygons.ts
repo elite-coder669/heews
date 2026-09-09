@@ -1,4 +1,5 @@
 import type { Ward } from '../types';
+import { api } from './api';
 
 const FALLBACK_BOX = 0.012;
 
@@ -8,7 +9,16 @@ let cache: Record<string, Ring> | null = null;
 
 async function loadGeoJSON(): Promise<any | null> {
   try {
-    const r = await fetch('/data/hyderabad_wards.geojson');
+    // Ask the backend which city it's configured for (CITY env var), then
+    // load that city's ward boundaries — e.g. /data/mumbai_wards.geojson.
+    // Falls back to hyderabad if /api/config isn't reachable yet.
+    let city = 'hyderabad';
+    try {
+      const cfg = await api.config();
+      if (cfg?.city) city = cfg.city;
+    } catch { /* backend not up yet — fall back to default city */ }
+
+    const r = await fetch(`/data/${city}_wards.geojson`);
     if (!r.ok) return null;
     return await r.json();
   } catch { return null; }

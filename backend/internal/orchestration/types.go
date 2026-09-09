@@ -288,9 +288,15 @@ func centroidFromGeometry(raw json.RawMessage) (GeoPoint, error) {
 	return GeoPoint{Lat: (minLat + maxLat) / 2, Lon: (minLon + maxLon) / 2}, nil
 }
 
-// LoadFixtures loads real Hyderabad ward geometry + demographics for all modes.
+// LoadFixtures loads real ward geometry + demographics for the configured
+// city (o.Cfg.City, e.g. "hyderabad", "mumbai", "delhi" — see CITY env var
+// and backend/internal/config/cities.go) for all modes.
 func (o *Orchestrator) LoadFixtures() error {
-	data, err := os.ReadFile(filepath.Join(o.repoRoot, "data/fixtures/wards/hyderabad_wards.geojson"))
+	city := "hyderabad"
+	if o.Cfg != nil && o.Cfg.City != "" {
+		city = o.Cfg.City
+	}
+	data, err := os.ReadFile(filepath.Join(o.repoRoot, "data/fixtures/wards/"+city+"_wards.geojson"))
 	if err != nil {
 		o.wards = inlineWards()
 		for _, w := range o.wards {
@@ -329,7 +335,11 @@ func (o *Orchestrator) LoadFixtures() error {
 }
 
 func (o *Orchestrator) loadDemographics() map[string]Demographics {
-	data, err := os.ReadFile(filepath.Join(o.repoRoot, "data/fixtures/demographics/hyderabad_demo.json"))
+	city := "hyderabad"
+	if o.Cfg != nil && o.Cfg.City != "" {
+		city = o.Cfg.City
+	}
+	data, err := os.ReadFile(filepath.Join(o.repoRoot, "data/fixtures/demographics/"+city+"_demo.json"))
 	if err != nil {
 		return nil
 	}

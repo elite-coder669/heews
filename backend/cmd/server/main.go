@@ -29,16 +29,27 @@ func main() {
 
 	apiMux := api.NewRouter(cfg, orch)
 
-	// Wrap: API + frontend static (built dist/)
+	// Wrap: API + ward GeoJSON data + frontend static (built dist/)
 	root := http.NewServeMux()
 	root.Handle("/api/", apiMux)
 	root.Handle("/api", apiMux)
 
+	// Ward boundary GeoJSON (/data/<city>_wards.geojson) must be served
+	// regardless of whether a built frontend bundle is present — the
+	// frontend may be running as its own separate dev-server container
+	// (as in docker-compose), in which case there is no frontend/dist at
+	// all. Serving this here, unconditionally, is what makes the map draw
+	// real ward polygons instead of falling back to placeholder squares.
+	if wardsDir := findWardsDir(); wardsDir != "" {
+		log.Printf("serving ward geojson from %s", wardsDir)
+		root.Handle("/data/", http.StripPrefix("/data/", http.FileServer(http.Dir(wardsDir))))
+	} else {
+		log.Printf("warning: data/fixtures/wards not found — ward map will fall back to placeholder squares")
+	}
+
 	staticDir := findDist()
 	if staticDir != "" {
 		log.Printf("serving frontend from %s", staticDir)
-		fs := http.FileServer(http.Dir(staticDir))
-		root.Handle("/data/", fs)
 		root.Handle("/assets/", immutable(staticDir))
 		root.Handle("/", spaHandler(staticDir))
 	} else {
@@ -102,6 +113,27 @@ func spaHandler(dir string) http.HandlerFunc {
 		}
 		fs.ServeHTTP(w, r)
 	}
+}
+
+func findWardsDir() string {
+	if root := os.Getenv("HEEWS_ROOT"); root != "" {
+		c := filepath.Join(root, "data/fixtures/wards")
+		if _, err := os.Stat(c); err == nil {
+			abs, _ := filepath.Abs(c)
+			return abs
+		}
+	}
+	candidates := []string{
+		"data/fixtures/wards",
+		"../data/fixtures/wards",
+	}
+	for _, c := range candidates {
+		if _, err := os.Stat(c); err == nil {
+			abs, _ := filepath.Abs(c)
+			return abs
+		}
+	}
+	return ""
 }
 
 func findDist() string {
